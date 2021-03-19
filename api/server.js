@@ -1,13 +1,11 @@
 const express = require("express");
-const helmet = require("helmet");
+
+const RecipesRouter = require("./recipes/recipe-router");
 
 const server = express();
 
-// create RecipeRouter variable that references recipe-router
-
-server.use(helmet());
 server.use(express.json());
 
-// need to use server to run on RecipeRouter
+server.use("/api/recipes", RecipesRouter);
 
 module.exports = server;
